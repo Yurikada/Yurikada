@@ -8,6 +8,20 @@
 
 My background is in mechanical engineering, vibration analysis, and equipment diagnostics. I build reproducible numerical and machine-learning case studies, with explicit baselines, validation criteria, failed predictions, and limitations.
 
+## Try the live demos
+
+| Project | What you can inspect | Demo |
+|---|---|---|
+| SceneLex | An image-first English vocabulary interface | [Open app](https://yurikada.github.io/scenelex/) |
+| Math Painting | Interactive complex-function visualization | [Open app](https://yurikada.github.io/math-painting/) |
+| Modal Analysis Portfolio | LSCF / CMIF / MIMO modal-analysis workflow with synthetic data | [Open Streamlit app](https://modal-analysis-portfolio.streamlit.app/) |
+| Bearing Diagnostics | Reproducible bearing-fault case study and evidence boundaries | [Open case study](https://yurikada.github.io/bearing-diagnostics/) |
+| Bayesian Optimization | Staged experiments, calibration, and limitations | [Open case study](https://yurikada.github.io/bayesopt-process/) |
+| Geospatial Change Detection | Wildfire change detection evaluated against reference data | [Open case study](https://yurikada.github.io/geo-change-detection/) |
+
+The Streamlit demo may need to be woken after inactivity. Each case study states
+what is implemented, what was validated, and what remains unverified.
+
 ## Representative work
 
 ### [modal-analysis-portfolio](https://github.com/Yurikada/modal-analysis-portfolio)
