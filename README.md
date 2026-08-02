@@ -24,6 +24,12 @@ what is implemented, what was validated, and what remains unverified.
 
 ## Representative work
 
+### [bearing-diagnostics](https://github.com/Yurikada/bearing-diagnostics)
+
+転がり軸受の振動診断ケーススタディです。FFT・Welch PSD・Hilbertエンベロープ解析を自前実装してscipyと照合し、正解既知のCWRUデータで手法を固定してから、NASA IMSのrun-to-failureデータに適用しました。故障特徴周波数はデータを見る前に幾何と回転数から宣言し、検出リードタイムと誤報の評価、独立runへの転移テスト、残る限界の開示までをレポートにまとめています。
+
+*A rolling-bearing vibration-diagnostics case study: signal-processing core implemented from scratch and validated against scipy, methods frozen on labeled CWRU data, then applied to NASA IMS run-to-failure detection — including a transfer test on an independent run and explicit limitations.*
+
 ### [modal-analysis-portfolio](https://github.com/Yurikada/modal-analysis-portfolio)
 
 実験モード解析のPythonツールキットです。LSCF安定化ダイアグラム、CMIF、共有ポールMIMOフィッティングを実装し、正解値付き合成データと再現可能な検証スクリプトで照合しています。
