@@ -18,6 +18,7 @@ My background is in mechanical engineering, vibration analysis, and equipment di
 | Bearing Diagnostics | Reproducible bearing-fault case study and evidence boundaries | [Open case study](https://yurikada.github.io/bearing-diagnostics/) |
 | Bayesian Optimization | Staged experiments, calibration, and limitations | [Open case study](https://yurikada.github.io/bayesopt-process/) |
 | Geospatial Change Detection | Wildfire change detection evaluated against reference data | [Open case study](https://yurikada.github.io/geo-change-detection/) |
+| Similarity Radar | Rotation-invariant similarity landscapes read by distance and density | [Open demo](https://yurikada.github.io/similarity-radar/) |
 
 The Streamlit demo may need to be woken after inactivity. Each case study states
 what is implemented, what was validated, and what remains unverified.
@@ -29,6 +30,12 @@ what is implemented, what was validated, and what remains unverified.
 転がり軸受の振動診断ケーススタディです。FFT・Welch PSD・Hilbertエンベロープ解析を自前実装してscipyと照合し、正解既知のCWRUデータで手法を固定してから、NASA IMSのrun-to-failureデータに適用しました。故障特徴周波数はデータを見る前に幾何と回転数から宣言し、検出リードタイムと誤報の評価、独立runへの転移テスト、残る限界の開示までをレポートにまとめています。
 
 *A rolling-bearing vibration-diagnostics case study: signal-processing core implemented from scratch and validated against scipy, methods frozen on labeled CWRU data, then applied to NASA IMS run-to-failure detection — including a transfer test on an independent run and explicit limitations.*
+
+### [similarity-radar](https://github.com/Yurikada/similarity-radar)
+
+高次元類似度の2D投影を「軸ではなく距離と密度で読む」ための可視化研究です。回転不変な読み取り、密度面、クラスタリング、時系列トレンドまでの6段パイプラインを実装し、2Dで立てた仮説を高次元側で検証する往復を、2つのドメインのケーススタディで記録しています。公開デモは合成データのみで動作します。
+
+*A landscape-visualization study of high-dimensional similarity: rotation-invariant readout, density surfaces, and a 2D-hypothesis / high-dimensional-verification loop documented across two domains. The public demo runs on synthetic data only.*
 
 ### [modal-analysis-portfolio](https://github.com/Yurikada/modal-analysis-portfolio)
 
