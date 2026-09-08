@@ -2,65 +2,85 @@
 
 **現象を説明するモデルと、そのモデルをどこまで信頼できるか検証する仕組みを、対で作ります。**
 
-*I build models of real-world phenomena together with checks that make their evidence and limits explicit.*
+機械工学、振動・モード解析、設備診断の経験を基盤に、数値計算・統計・機械学習を独学で学び、ケーススタディと個人向けツールを作っています。このページでは、各プロジェクトの目的、試せる入口、検証の記録をまとめています。
 
-機械工学、振動・モード解析、設備診断の経験を基盤に、数値計算、統計、機械学習を用いた検証可能な成果物を作っています。結果だけでなく、比較条件、評価基準、外した予測、残る限界まで記録することを重視しています。
+My background is in mechanical engineering, vibration analysis, and equipment diagnostics. I am independently studying numerical methods, statistics, and machine learning through reproducible case studies and personal tools.
 
-My background is in mechanical engineering, vibration analysis, and equipment diagnostics. I build reproducible numerical and machine-learning case studies, with explicit baselines, validation criteria, failed predictions, and limitations.
+## まず見るプロジェクト
 
-## Try the live demos
-
-| Project | What you can inspect | Demo |
+| プロジェクト | 確認できること | 入口 |
 |---|---|---|
-| SceneLex | An image-first English vocabulary interface | [Open app](https://yurikada.github.io/scenelex/) |
-| Math Painting | Interactive complex-function visualization | [Open app](https://yurikada.github.io/math-painting/) |
-| Modal Analysis Portfolio | LSCF / CMIF / MIMO modal-analysis workflow with synthetic data | [Open Streamlit app](https://modal-analysis-portfolio-af6875oymekgugugcy7tsx.streamlit.app/) |
-| Bearing Diagnostics | Reproducible bearing-fault case study and evidence boundaries | [Open case study](https://yurikada.github.io/bearing-diagnostics/) |
-| Bayesian Optimization | Staged experiments, calibration, and limitations | [Open case study](https://yurikada.github.io/bayesopt-process/) |
-| Geospatial Change Detection | Wildfire change detection evaluated against reference data | [Open case study](https://yurikada.github.io/geo-change-detection/) |
-| Similarity Radar | Rotation-invariant similarity landscapes read by distance and density | [Open demo](https://yurikada.github.io/similarity-radar/) |
+| [mech-design-study](https://github.com/Yurikada/mech-design-study) | 梁の応力・熱・振動、設計案比較、梁FEMと解析解の照合。未評価の設計分野も表示 | [図付き講義](https://github.com/Yurikada/mech-design-study/blob/main/docs/learning/01-lecture.md) |
+| [modal-analysis-portfolio](https://github.com/Yurikada/modal-analysis-portfolio) | LSCF・CMIF・共有ポールMIMOフィッティングを正解値付き合成データで検証 | [Streamlitアプリ](https://modal-analysis-portfolio-af6875oymekgugugcy7tsx.streamlit.app/) |
+| [bearing-diagnostics](https://github.com/Yurikada/bearing-diagnostics) | CWRUでの手法照合、NASA IMSの劣化検出、独立runへの転移と限界 | [ケーススタディ](https://yurikada.github.io/bearing-diagnostics/) |
+| [agent-viz](https://github.com/Yurikada/agent-viz) | MLflowの試行台帳、ケース別比較、判断の根拠、人間とエージェントの双方向パネル | [合成データで試す](https://github.com/Yurikada/agent-viz#使い方) |
+| [kaggle-house-prices-workflow](https://github.com/Yurikada/kaggle-house-prices-workflow) | 外れ値の扱いとモデル選択を同じ比較条件で検討した実験 | [公開コードと実験表](https://github.com/Yurikada/kaggle-house-prices-workflow#公開されている内容) |
+| [kaggle-store-sales-workflow](https://github.com/Yurikada/kaggle-store-sales-workflow) | 16日ブロック予測の時系列CV、特徴比較、CV改善と公開スコアの食い違い | [検証設計と結果](https://github.com/Yurikada/kaggle-store-sales-workflow) |
 
-The Streamlit demo may need to be woken after inactivity. Each case study states
-what is implemented, what was validated, and what remains unverified.
+各リポジトリは個人開発・学習の成果物です。実装の動作確認、本人の理解、実設備や別データへの一般化は、それぞれ分けて扱います。AI支援による実装・整理も利用し、独力実装や業務での導入実績と混同しないようにしています。
 
-## Representative work
+## ブラウザで試す・読む
 
-### [bearing-diagnostics](https://github.com/Yurikada/bearing-diagnostics)
+セットアップなしで見られる入口です。Streamlitは休止後に起動待ちになる場合があります。
 
-転がり軸受の振動診断ケーススタディです。FFT・Welch PSD・Hilbertエンベロープ解析を自前実装してscipyと照合し、正解既知のCWRUデータで手法を固定してから、NASA IMSのrun-to-failureデータに適用しました。故障特徴周波数はデータを見る前に幾何と回転数から宣言し、検出リードタイムと誤報の評価、独立runへの転移テスト、残る限界の開示までをレポートにまとめています。
+| デモ・レポート | 内容 |
+|---|---|
+| [Modal Analysis](https://modal-analysis-portfolio-af6875oymekgugugcy7tsx.streamlit.app/) | 合成FRFからモードを同定する解析アプリ |
+| [Bearing Diagnostics](https://yurikada.github.io/bearing-diagnostics/) | 振動診断の結果・条件・転移の限界 |
+| [Bayesian Optimization](https://yurikada.github.io/bayesopt-process/) | 少量実験、獲得関数、ノイズ、較正のケーススタディ |
+| [Geospatial Change Detection](https://yurikada.github.io/geo-change-detection/) | Sentinel-2による山火事変化検出と参照データとの照合 |
+| [Similarity Radar](https://yurikada.github.io/similarity-radar/) | 合成データで高次元類似度の投影・距離・密度を探索 |
+| [SceneLex](https://yurikada.github.io/scenelex/) | 英単語と画像を結びつけるクイズ |
+| [Math Painting](https://yurikada.github.io/math-painting/) | 複素平面の写像を使った画像変形とPNG出力 |
 
-*A rolling-bearing vibration-diagnostics case study: signal-processing core implemented from scratch and validated against scipy, methods frozen on labeled CWRU data, then applied to NASA IMS run-to-failure detection — including a transfer test on an independent run and explicit limitations.*
+## 公開プロジェクト一覧
 
-### [similarity-radar](https://github.com/Yurikada/similarity-radar)
+プロフィール用の本リポジトリを除く18件を、用途別に整理しています。
 
-高次元類似度の2D投影を「軸ではなく距離と密度で読む」ための可視化研究です。回転不変な読み取り、密度面、クラスタリング、時系列トレンドまでの6段パイプラインを実装し、2Dで立てた仮説を高次元側で検証する往復を、2つのドメインのケーススタディで記録しています。公開デモは合成データのみで動作します。
+### 機械工学・数値計算・センシング
 
-*A landscape-visualization study of high-dimensional similarity: rotation-invariant readout, density surfaces, and a 2D-hypothesis / high-dimensional-verification loop documented across two domains. The public demo runs on synthetic data only.*
+| リポジトリ | 内容 |
+|---|---|
+| [mech-design-study](https://github.com/Yurikada/mech-design-study) | 個別の設計技術と制約の統合を、解析解・比較CLI・梁FEMで学ぶ |
+| [modal-analysis-portfolio](https://github.com/Yurikada/modal-analysis-portfolio) | 実験モード解析のPythonコアとStreamlit UI |
+| [bearing-diagnostics](https://github.com/Yurikada/bearing-diagnostics) | 信号処理の数値照合から軸受の劣化検出まで |
+| [bayesopt-process](https://github.com/Yurikada/bayesopt-process) | NumPyによるガウス過程・獲得関数の実装と比較検証 |
+| [geo-change-detection](https://github.com/Yurikada/geo-change-detection) | 衛星画像の変化検出、評価指標、参照定義の比較 |
 
-### [modal-analysis-portfolio](https://github.com/Yurikada/modal-analysis-portfolio)
+### データ分析・実験管理
 
-実験モード解析のPythonツールキットです。LSCF安定化ダイアグラム、CMIF、共有ポールMIMOフィッティングを実装し、正解値付き合成データと再現可能な検証スクリプトで照合しています。
+| リポジトリ | 内容 |
+|---|---|
+| [agent-viz](https://github.com/Yurikada/agent-viz) | 試行・ケース・判断の根拠を共有する可視化基盤 |
+| [kaggle-titanic-experiment-management](https://github.com/Yurikada/kaggle-titanic-experiment-management) | 事前登録した比較、誤りの層別、不確実性の学習記録 |
+| [kaggle-house-prices-workflow](https://github.com/Yurikada/kaggle-house-prices-workflow) | 外れ値処理とnested CVによるモデル比較 |
+| [kaggle-store-sales-workflow](https://github.com/Yurikada/kaggle-store-sales-workflow) | 時系列の検証分割と16日先までの予測実験 |
+| [similarity-radar](https://github.com/Yurikada/similarity-radar) | 次元削減・回転不変な読み取り・密度・時系列整列 |
 
-*Experimental modal-analysis toolkit validated against synthetic systems with known modal parameters.*
+### 学習・日常のツール
 
-### [geo-change-detection](https://github.com/Yurikada/geo-change-detection)
+| リポジトリ | 内容 |
+|---|---|
+| [enja-reader](https://github.com/Yurikada/enja-reader) | 文単位で日英を切り替えるHTML生成ツールとChrome拡張 |
+| [scenelex](https://github.com/Yurikada/scenelex) | Wikimedia Commonsの画像を使った英語語彙学習 |
+| [ai-english-conversation-tutor](https://github.com/Yurikada/ai-english-conversation-tutor) | 音声認識、文法フィードバック、読み上げを備えた英会話練習 |
+| [kajiflow](https://github.com/Yurikada/kajiflow) | 「今の1件」を提示する家事管理とタスク・購買記録の連携 |
+| [math-painting](https://github.com/Yurikada/math-painting) | ビルド不要のCanvas画像変形スタジオ |
+| [forza-horizon-telemetry-monitor](https://github.com/Yurikada/forza-horizon-telemetry-monitor) | UDPテレメトリから走行差分や運転フィードバックを表示 |
 
-Sentinel-2画像から山火事前後の変化を検出し、Copernicus EMSの公式被害評価と照合したケーススタディです。分光指数、Otsu閾値、モルフォロジ、評価指標の計算核を実装し、確立ライブラリとの数値一致と、外した予測の訂正過程を残しています。
+### 取引記録・スクリーニングの検証
 
-*Wildfire change detection from Sentinel-2 imagery, evaluated against Copernicus EMS reference data.*
+| リポジトリ | 内容 |
+|---|---|
+| [trade-statistics](https://github.com/Yurikada/trade-statistics) | 取引履歴を分析するレビュー用パイプライン。合成データの実行例付き |
+| [jp-stock-screener](https://github.com/Yurikada/jp-stock-screener) | ルールによる銘柄抽出と、抽出後リターンの追跡・検証 |
 
-### [bayesopt-process](https://github.com/Yurikada/bayesopt-process)
-
-ベイズ最適化を、ガウス過程、獲得関数、ノイズ、バッチ評価、校正まで段階的に検証した実験プロジェクトです。自前実装を外部実装と照合し、手法の優位性が問題設定に依存することも含めてレポート化しています。
-
-*A staged Bayesian-optimization study covering Gaussian processes, acquisition functions, noise, batching, and calibration.*
-
-## How I work
+## 進め方
 
 - 変更前に仮説と比較条件を置く
 - 指標を参照定義、分母、測定限界とセットで読む
-- 自前実装は手計算または確立ライブラリと照合する
-- 予測を外した場合も削除せず、原因と訂正を記録する
+- 計算の実装は手計算または確立ライブラリと照合する
+- 予測を外した場合も、原因と訂正を記録する
 - 実装済み、推論、未検証を分けて説明する
 
 ## Profiles
